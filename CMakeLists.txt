@@ -42,7 +42,7 @@ INSTALL(DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
-INSTALL(EXPORT jsonutils-targets
+INSTALL(EXPORT clogger-targets
     FILE
         CLoggerTargets.cmake
     NAMESPACE
