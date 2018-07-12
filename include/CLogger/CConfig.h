@@ -111,7 +111,7 @@ namespace CLogger
          * @param option
          * @return
          */
-        bool has_option(const PSWriterOption &option) const;
+        bool has_option(const CWriterOption &option) const;
         /**
          * @brief 
          * Getter for an option, puts it in the value and returns true if exists
@@ -166,7 +166,7 @@ namespace CLogger
          * @param default_value 
          * @return double
          */
-        double get_option_default(const PSWriterOption &option, double default_value) const;
+        double get_option_default(const CWriterOption &option, double default_value) const;
         /**
          * @brief 
          * Getter for the writer name
@@ -180,7 +180,7 @@ namespace CLogger
          * 
          * @return PSWriterType 
          */
-        PSWriterType get_writer_type() const;
+        CWriterType get_writer_type() const;
     };
     class CConfig
     {
@@ -280,7 +280,7 @@ namespace CLogger
          * 
          * @param config
          */
-        void AddWriter(const CWriterConfig &config);
+        void add_writer(const CWriterConfig &config);
         /**
          * @brief
          * Removes a writer by name

@@ -11,7 +11,7 @@
 
 namespace CLogger
 {
-    void CLogger::WriteLog(const CLog &log) const
+    void CLogger::write_log(const CLog &log) const
     {
         CManager::get_instance().write(log, logger_channel_);
     }

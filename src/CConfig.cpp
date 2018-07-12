@@ -8,10 +8,10 @@
 
 #include <CLogger/CConfig.h>
 
-namespace PSLogger
+namespace CLogger
 {
     CWriterConfig::CWriterConfig(const std::string &writer_name, const CWriterType &writer_type)
-        : writer_name_(writerName), writer_type_(writer_type)
+        : writer_name_(writer_name), writer_type_(writer_type)
     {
     }
 
@@ -34,7 +34,7 @@ namespace PSLogger
         set_option(option, CConfig::convert_from<double>(value));
     }
 
-    bool CWriterConfig::RemoveOption(const CWriterOption &option)
+    bool CWriterConfig::remove_option(const CWriterOption &option)
     {
         if (has_option(option))
         {

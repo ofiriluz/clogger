@@ -11,7 +11,7 @@
 namespace CLogger
 {
     CChannel::CChannel(const std::string &channel_name, const CLogLevel &channel_level)
-        : channel_level_(channel_level), channel_name_(channel_name)
+        : channel_name_(channel_name), channel_level_(channel_level)
     {
     }
 
@@ -19,17 +19,17 @@ namespace CLogger
     {
     }
 
-    PSLogLevel CChannel::GetLogLevel() const
+    CLogLevel CChannel::get_log_level() const
     {
         return channel_level_;
     }
 
-    void CChannel::SetLogLevel(const PSLogLevel &channel_level)
+    void CChannel::set_log_level(const CLogLevel &channel_level)
     {
         channel_level_ = channel_level;
     }
 
-    std::string CChannel::GetChannelName() const
+    std::string CChannel::get_channel_name() const
     {
         return channel_name_;
     }

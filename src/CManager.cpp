@@ -11,7 +11,7 @@
 namespace CLogger
 {
     CManager::CManager()
-        : default_log_level_(CLogLevel::LL_DEBUG), config_(new CConfig())
+        : config_(new CConfig()), default_log_level_(CLogLevel::LL_DEBUG)
     {
     }
 
@@ -23,8 +23,8 @@ namespace CLogger
 
     CManager::~CManager()
     {
-        ClearWriters();
-        ClearChannels();
+        clear_writers();
+        clear_channels();
     }
 
     CChannelPtr CManager::get_channel(const std::string &name)
@@ -38,7 +38,7 @@ namespace CLogger
 
     void CManager::configure(const CConfigPtr &config)
     {
-        close_writers();
+        clear_writers();
         config_ = config;
 
         // Change the default level if requested by config
@@ -52,9 +52,9 @@ namespace CLogger
         }
 
         // Create all the writers
-        for (auto &&writer_config : config_->GetWriters())
+        for (auto &&writer_config : config_->get_writers())
         {
-            CWriterPtr writer = PSWriterFactory::GetSingleton().CreateWriter(writer_config);
+            CWriterPtr writer = CWriterFactory::get_instance().create_writer(writer_config);
             if (writer)
             {
                 writers_.push_back(writer);
@@ -64,7 +64,7 @@ namespace CLogger
 
     void CManager::write(const CLog &log, const CChannelPtr &channel)
     {
-        std::lock_guard<std::mutex> lock(writers_mutex);
+        std::lock_guard<std::mutex> lock(writers_mutex_);
         for (auto &&writer : writers_)
         {
             writer->write(log, channel);

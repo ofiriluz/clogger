@@ -49,7 +49,7 @@ namespace CLogger
          */
         virtual void write(const CLog &log, const CChannelPtr &channel) = 0;
     };
-    typedef std::shared_ptr<PSWriter> PSWriterPtr;
+    typedef std::shared_ptr<CWriter> CWriterPtr;
 }
 
 #endif /* CLOGGER_CWRITERS_CWRITER_H_ */

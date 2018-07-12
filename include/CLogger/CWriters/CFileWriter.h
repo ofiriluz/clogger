@@ -9,7 +9,7 @@
 #ifndef CLOGGER_CWRITERS_CFILEWRITER_H_
 #define CLOGGER_CWRITERS_CFILEWRITER_H_
 
-#include <CLogger/Writers/CWriter.h>
+#include <CLogger/CWriters/CWriter.h>
 #include <iomanip>
 #include <ctime>
 #include <sys/stat.h>

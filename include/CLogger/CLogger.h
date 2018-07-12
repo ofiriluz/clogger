@@ -9,7 +9,7 @@
 #ifndef CLOGGER_CLOGGER_H_
 #define CLOGGER_CLOGGER_H_
 
-#include <CLogger/CLogger.h>
+#include <CLogger/CChannel.h>
 #include <mutex>
 #include <stdexcept>
 

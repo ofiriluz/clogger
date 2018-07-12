@@ -12,7 +12,7 @@
 namespace CLogger
 {
     CLog::CLog(const CLogLevel &log_level, const CLogger &logger)
-        : logger_(logger), log_level_(log_level), stream_(nullptr)
+        : stream_(nullptr), log_level_(log_level), logger_(logger)
     {
         if (log_level_ >= logger.get_logger_channel()->get_log_level())
         {
@@ -24,7 +24,7 @@ namespace CLogger
     {
         if (stream_)
         {
-            mTimeCreated = std::chrono::system_clock::now();
+            time_created_ = std::chrono::system_clock::now();
             logger_.write_log(*this);
             delete stream_;
         }

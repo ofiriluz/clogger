@@ -17,10 +17,10 @@ int main(int argc, char **argv)
    std::shared_ptr<CLogger::CConfig> config(new CLogger::CConfig());
    CLogger::CWriterConfig file_writer_config("File", CLogger::CWriterType::LW_FILE_WRITER);
    CLogger::CWriterConfig console_writer_config("Console", CLogger::CWriterType::LW_CONSOLE_WRITER);
-   fileWriterConfig.set_option(CLogger::CWriterOption::WO_FILE_LOG_FILES_PATH, "/tmp/test");
+   file_writer_config.set_option(CLogger::CWriterOption::WO_FILE_LOG_FILES_PATH, "/tmp/test");
    config->add_writer(file_writer_config);
    config->add_writer(console_writer_config);
-   CLogger::CManager::get_singleton().configure(config);
+   CLogger::CManager::get_instance().configure(config);
 
    logger.debug() << "HI";
    logger.info() << "HI2";
