@@ -42,7 +42,7 @@ namespace CLogger
             return "Notice";
         case CLogLevel::LL_WARNING:
             return "Warning";
-        case CLogLevel::LL_ERROR:
+        default:
             return "Error";
         }
     }

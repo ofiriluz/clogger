@@ -11,7 +11,7 @@
 namespace CLogger
 {
     CWriterConfig::CWriterConfig(const std::string &writer_name, const CWriterType &writer_type)
-        : writer_name_(writer_name), writer_type_(writer_type)
+        : writer_type_(writer_type), writer_name_(writer_name)
     {
     }
 

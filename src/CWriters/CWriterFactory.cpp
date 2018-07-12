@@ -24,13 +24,13 @@ namespace CLogger
     {
     }
 
-    CWriterPtr CWriterFactory::create_writer(const CWriterConfig &writer_comfig)
+    CWriterPtr CWriterFactory::create_writer(const CWriterConfig &writer_config)
     {
-        if (writer_comfig.get_writer_type() == CWriterType::LW_CONSOLE_WRITER)
+        if (writer_config.get_writer_type() == CWriterType::LW_CONSOLE_WRITER)
         {
             return CWriterPtr(new CConsoleWriter(writer_config));
         }
-        else if (writer_comfig.get_writer_type() == CWriterType::LW_FILE_WRITER)
+        else if (writer_config.get_writer_type() == CWriterType::LW_FILE_WRITER)
         {
             return CWriterPtr(new CFileWriter(writer_config));
         }

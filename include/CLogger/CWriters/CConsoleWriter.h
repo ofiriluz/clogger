@@ -24,7 +24,7 @@ namespace CLogger
          * Changes the console log color for the fitting level
          * @param log_level
          */
-        void configure_log_level(const CLogLevel &log_level);
+        void configure_log_color(const CLogLevel &log_level);
         /**
          * Resets the log color
          */

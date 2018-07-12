@@ -67,9 +67,9 @@ namespace CLogger
           std::strftime(dtf, sizeof(dtf), "[%d/%m/%Y %H:%M:%S]",std::localtime(&time));;
 
           // Output to console
-          std::cout << dtf << "[" << channel->GetChannelName() << "][" << PSLog::LevelToString(log.GetLogLevel()) 
+          std::cout << dtf << "[" << channel->get_channel_name() << "][" << CLog::level_to_string(log.get_log_level()) 
                     << "]: "
-                    << log.GetStream()->str();
+                    << log.get_stream()->str();
 
           // Reset output color
           if(!disable_console_color_)

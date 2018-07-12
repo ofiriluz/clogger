@@ -6,7 +6,7 @@
  * @date 2018-07-11
  */
 
-#include <CLogger/CFileWriter.h>
+#include <CLogger/CWriters/CFileWriter.h>
 
 namespace CLogger
 {
@@ -61,7 +61,7 @@ namespace CLogger
 
         int rc = mkdir(dir, mode);
 
-        free(dir);
+        free((char*)dir);
 
         return rc;
     }
@@ -69,7 +69,7 @@ namespace CLogger
     void CFileWriter::switch_stream(const std::string &channel)
     {
         char dtf[1024];
-        std::shared_ptr<PSFile> file;
+        std::shared_ptr<CFile> file;
 
         // If Channel file exists, close it and move to the index for this channel
         if (current_files_.find(channel) != current_files_.end())
@@ -138,7 +138,7 @@ namespace CLogger
     void CFileWriter::write(const CLog &log, const CChannelPtr &channel)
     {
         char dtf[1024];
-        std::shared_ptr<PSFile> file;
+        std::shared_ptr<CFile> file;
         std::string channelName;
 
         if (!seperate_channel_to_files_)
@@ -171,10 +171,10 @@ namespace CLogger
             return;
         }
 
-        std::time_t time = std::chrono::system_clock::to_time_t(log.GetTimeCreated());
+        std::time_t time = std::chrono::system_clock::to_time_t(log.get_time_created());
         std::strftime(dtf, sizeof(dtf), "[%d/%m/%Y %H:%M:%S]", std::localtime(&time));
         ;
-        file->stream << dtf << "[" << channel->GetChannelName() << "]["
-                    << PSLog::LevelToString(log.GetLogLevel()) << "]: " << log.GetStream()->str() << std::endl;
+        file->stream << dtf << "[" << channel->get_channel_name() << "]["
+                    << CLog::level_to_string(log.get_log_level()) << "]: " << log.get_stream()->str() << std::endl;
     }
 }
