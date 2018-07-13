@@ -38,7 +38,9 @@ namespace CLogger
         WO_FILE_SIZE_PER_LOG_FILE,
         WO_FILE_MAX_LOG_FILES,
         WO_FILE_LOG_FOLDER_PREFIX,
-        WO_FILE_SEPERATE_CHANNEL_FILES
+        WO_FILE_SEPERATE_CHANNEL_FILES,
+
+        WO_SYSLOG_NAME
     };
 
     /**
@@ -48,7 +50,8 @@ namespace CLogger
     enum class CWriterType : uint8_t
     {
         LW_FILE_WRITER,
-        LW_CONSOLE_WRITER
+        LW_CONSOLE_WRITER,
+        LW_SYSLOG_WRITER
     };
 
     class CWriterConfig

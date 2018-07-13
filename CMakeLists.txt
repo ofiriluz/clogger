@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
-PROJECT(clogger VERSION 1.0.0 LANGUAGES CXX)
+PROJECT(clogger VERSION 1.1.0 LANGUAGES CXX)
 
 INCLUDE_DIRECTORIES(include)
 
@@ -12,6 +12,7 @@ ADD_LIBRARY(clogger
     src/CWriters/CWriter.cpp
     src/CWriters/CConsoleWriter.cpp
     src/CWriters/CFileWriter.cpp
+    src/CWriters/CSysLogWriter.cpp
     src/CWriters/CWriterFactory.cpp)
 
 ADD_LIBRARY(CLogger::clogger ALIAS clogger)

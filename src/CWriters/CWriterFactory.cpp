@@ -34,6 +34,10 @@ namespace CLogger
         {
             return CWriterPtr(new CFileWriter(writer_config));
         }
+        else if(writer_config.get_writer_type() == CWriterType::LW_SYSLOG_WRITER)
+        {
+            return CWriterPtr(new CSysLogWriter(writer_config));
+        }
         return CWriterPtr();
     }
 }

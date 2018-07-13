@@ -102,7 +102,7 @@ namespace CLogger
         }
         else
         {
-            ss << "ALL"
+            ss << "Channels"
             << "_";
         }
 
@@ -123,7 +123,7 @@ namespace CLogger
 
         if (!seperate_channel_to_files_)
         {
-            switch_stream("DEFAULT");
+            switch_stream("DefaultChannel");
         }
     }
 
@@ -143,7 +143,7 @@ namespace CLogger
 
         if (!seperate_channel_to_files_)
         {
-            channelName = "DEFAULT";
+            channelName = "DefaultChannel";
         }
         else
         {
@@ -176,5 +176,6 @@ namespace CLogger
         ;
         file->stream << dtf << "[" << channel->get_channel_name() << "]["
                     << CLog::level_to_string(log.get_log_level()) << "]: " << log.get_stream()->str() << std::endl;
+        file->stream.flush();
     }
 }

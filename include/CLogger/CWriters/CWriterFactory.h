@@ -10,6 +10,7 @@
 
 #include <CLogger/CWriters/CFileWriter.h>
 #include <CLogger/CWriters/CConsoleWriter.h>
+#include <CLogger/CWriters/CSysLogWriter.h>
 
 namespace CLogger
 {
